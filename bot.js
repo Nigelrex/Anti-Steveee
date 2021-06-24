@@ -11,6 +11,7 @@ const config = require("./config.json");
 const { MessageAttachment } = require("discord.js");
 
 const dotenv = require("dotenv").config();
+const keepAlive = require('./server')
 
 client.once("ready", () => {
   client.user.setPresence({
@@ -212,4 +213,5 @@ client.on("messageReactionRemove", async (reaction, user) => {
   }
 });
 
+keepAlive();
 client.login(process.env.bottoken);
