@@ -150,7 +150,7 @@ client.on("message", async (message) => {
         },
         {
           name: "**Rule 5**",
-          value: "\n**Social :** Be respectful. This includes no swearing.",
+          value: "\n**Social :** Be respectful. Swearing is allowed as long as it is not directed towards anybody, including Steveee.",
           inline: false,
         },
         {
