@@ -1,0 +1,22 @@
+{
+  "name": "anti-steveee",
+  "version": "1.0.0",
+  "description": "anti-stevee community",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "anit-steveee"
+  ],
+  "author": "Nigelrex",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "keyv": "^4.0.3",
+    "path": "^0.12.7"
+  }
+}
