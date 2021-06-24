@@ -11,7 +11,7 @@ const config = require("./config.json");
 const { MessageAttachment } = require("discord.js");
 
 const dotenv = require("dotenv").config();
-const keepAlive = require('./server')
+const keepAlive = require("./server");
 
 client.once("ready", () => {
   client.user.setPresence({
@@ -51,16 +51,38 @@ client.once("ready", () => {
 //   }
 // });
 
+client.on("message", (message) => {
+  if (message.content === `${config.bot.prefix}help`) {
+    message.channel.send({
+      embed: {
+        title: "Help needed?",
+        description: "Looking for help you used the right command!!!",
+        fields: [
+          {
+            name: "Report?",
+            value: `${config.bot.prefix}report <Video link> <Stolen creators pack/mod link>`,
+          },
+        ],
+        color: config.bot.color
+      },
+    });
+  }
+});
+
 client.on("message", (message, args) => {
   if (message.content.startsWith(`${config.bot.prefix}report`)) {
+    message.delete();
     const args = message.content
       .slice(config.bot.prefix.length)
       .trim()
       .split(" ");
     const argsa = args[1];
     const argsb = args[2];
-
-    message.channel.send({
+    // const channel = "857468150663479307"
+    const channel = client.channels.cache.find(
+      (channel) => channel.id === "857468150663479307"
+    );
+    channel.send({
       embed: {
         title: "Report",
         fields: [
@@ -84,7 +106,7 @@ client.on("message", (message, args) => {
   }
 });
 
-client.on("message", async(message) => {
+client.on("message", async (message) => {
   if (message.content === config.bot.prefix + "rules") {
     const tickemoji = "✅";
     message.delete();
